@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/site.css" />
+</head>
+
+<body>
+    <div id="mainDiv">
+        <div><a href="./index.html">Home</a></div>
+        <table>
+            <tr>
+                <th>Mozilla Developer Network</th>
+            </tr>
+            <tr>
+                <td>Standard Built in objects</td>
+                <td><button onclick="nm.sdObjects()">Click</a></td>
+            </tr>
+            <tr>
+                <td>Global Functions</td>
+                <td><button onclick="nm.globalFunc()">Click</a></td>
+            </tr>
+            <tr>
+                    <td>Fundamental Objects</td>
+                    <td><button onclick="nm.fundamentalObjects()">Click</a></td>
+            </tr>
+            <tr>
+                    <td>strings</td>
+                    <td><button onclick="nm.strings()">Click</a></td>
+            </tr>
+            <tr>
+                    <td>international</td>
+                    <td><button onclick="nm.international()">Click</a></td>
+            </tr>            
+        </table>
+
+
+        <form>
+            <textarea rows="90" cols="100" id="console"></textarea>
+        </form>
+
+
+    </div>
+
+    <script src="script/mozzilla.js"></script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,71 @@
+//dynamic namespacing
+var nm = {};
+(function(context) {
+    let console = null;
+
+    context.getConsole = function(){
+        if (console === null)
+        {
+         console = document.querySelector('#console');
+        }
+        return console;
+    }
+    
+    context.cpw = function(phrase)
+    {
+        this.getConsole().value = '';
+        this.pw(phrase);
+    }
+    
+    context.pw = function (phrase)
+    {
+        this.getConsole().value +=  phrase;
+    }
+
+    context.sdObjects = function()
+    {
+        this.cpw(`standard objects: \n`);
+    }
+
+    context.globalFunc = function()
+    {
+        const uri = "https://mozilla.org/?x=шеллы";
+        this.cpw(`eval isFinite, isNaN, parseFloat, parseInt \n`);
+        this.pw(`uri= ${uri} \nencodeURI = ${encodeURI(uri)}\ndecodeURI = ${decodeURI(encodeURI(uri))} \n`);
+        this.pw(`decodeURIComponent() encodeURIComponent() \n`);
+    }
+
+    context.fundamentalObjects = function()
+    {
+        this.cpw(`Object, Function, Boolean, Symbol, Error, EvalError, InternalError RangeError, ReferenceError, SyntaxError, TypeError, URIError \n`);
+    }
+
+    context.strings = function()
+    {
+        this.cpw(`concat, includes, slice, trim \n`);
+    }
+
+    context.international = function()
+    {
+        let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+        this.cpw(`England Date Time: ${new Intl.DateTimeFormat('en-GB', options).format(new Date())}  \n`);
+        this.pw(`Yank Date Time: ${new Intl.DateTimeFormat('en-US', options).format(new Date())}  \n`);
+        this.pw(`Arabic Date Time: ${new Intl.DateTimeFormat('ar-EG', options).format(new Date())}  \n`);
+        options = {
+            hour: 'numeric', minute: 'numeric', second: 'numeric', 
+            timeZone: 'Australia/Sydney',
+            timeZoneName: 'short'
+          };
+          this.pw(`Sydney Timezone: ${new Intl.DateTimeFormat('en-AU', options).format(new Date())}  \n`);
+          options = {
+            year: 'numeric', month: 'numeric', day: 'numeric',
+            hour: 'numeric', minute: 'numeric', second: 'numeric',
+            hour12: false,
+            timeZone: 'America/Los_Angeles' 
+          };
+          this.pw(`Los Angelese Timezone: ${new Intl.DateTimeFormat('en-US', options).format(new Date())}  \n`);
+    }
+
+   
+})(nm);
