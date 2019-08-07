@@ -58,24 +58,12 @@ user defined: created by execution of javascript code`)
 
 
 oo.creation = function() {
+    
+    this.literalstyle()
 
     this.pl(`
 using the new operator: var x = new Object().. Array()..Date()..RegExp("xx")
 `)
-
-    this.pl(`
-object literal style: 
-var x = {}    
-var x = {x:0, y:0}
-var x ={ "first Name": "fred", "age": 27, address: { addr1: "messy place"}}
-    `)
-
-    var x = {"first name": "peter", lastname: "smith", address: { addr1: "messy place"}}
-    this.pl(x["first name"])
-    this.pl(x.lastname)
-    this.pl(x.address.addr1)
-
-    
 
 	const demo = {
         "title": "demo",
@@ -98,4 +86,23 @@ var x ={ "first Name": "fred", "age": 27, address: { addr1: "messy place"}}
     this.pl(`Object.create() ${created.toString()} \n`);
     this.pl(`Objec.create(proto) ${basedOnProto.myDate.toString()} \n`);
     this.pl(`manually set prototype ${new oldStyleProto().dob.toString()} \n`);
+}
+
+oo.literalstyle = function() {
+    this.pl(`
+object literal style: 
+var x = {}    
+var x = {x:0, y:0}
+var x ={ "first Name": "fred", "age": 27, address: { addr1: "messy place"}}
+    `)
+
+    let x = {"first name": "peter", lastname: "smith", address: { addr1: "messy place"}}
+    this.pl(x["first name"])
+    this.pl(x.lastname)
+    this.pl(x.address.addr1)
+
+}
+
+oo.newobjectstyle = function() {
+    
 }
