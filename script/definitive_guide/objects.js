@@ -60,12 +60,9 @@ user defined: created by execution of javascript code`)
 oo.creation = function() {
     
     this.literalstyle()
+    this.newobjectstyle()
 
-    this.pl(`
-using the new operator: var x = new Object().. Array()..Date()..RegExp("xx")
-`)
-
-	const demo = {
+    const demo = {
         "title": "demo",
         name: "ademo",
         subObject: {
@@ -104,5 +101,7 @@ var x ={ "first Name": "fred", "age": 27, address: { addr1: "messy place"}}
 }
 
 oo.newobjectstyle = function() {
-    
+    this.pl(`
+using the new operator: var x = new Object().. Array()..Date()..RegExp("xx")
+`)    
 }
